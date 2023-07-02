@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+    <link href="    https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        .bg-row {
+            background-image: url(https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/surface-pro-9_multi-color_Pride-english?scl=1);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 800px;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<header>
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-1 pt-2 ">
+                <a href="#">
+                    <img alt="Microsoft" style="width: 100%"
+                         src="data:image/png;base64,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">
+                </a>
+            </div>
+            <div class="col-8 pt-1 display-9">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg ">
+                        <a class="navbar-brand" href="#">Surface</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        Computers
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        Computers for Business
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        Accessories
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        More
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                </li>
+                                <button type="button" class="btn btn-light border">SHOP DEAL</button>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                        All Microsoft
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-3 pt-2">
+
+                <button type="button" class="btn btn-link">Search <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <button type="button" class="btn btn-link">Cart <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+
+                <button type="button" class="btn btn-link">Login <i class="fa-solid fa-user-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</header>
+<div class="bg-row">
+    <div style="width: 500px;padding-top: 200px;padding-left: 100px">
+        <h1 style="font-size: 50px">Laptops designed by Microsoft</h1>
+        <br>
+        <p>Hugging your loved one is Pride. Mutual respect is Pride. Unleash your creativity with Surface laptops and
+            2-in-1s and make more Pride.</p>
+        <br>
+        <table>
+            <tr>
+                <td>
+                    <a class="nav-link active" aria-current="page" href="#"><p>Explore all > </p>
+                    </a>
+                </td>
+                <td style="width: 50px"></td>
+                <td><a class="nav-link active" aria-current="page" href="#"><p>Celebrate Pride > </p>
+                </a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<main class="container-fluid">
+
+    <div class="row" style="width: 100%">
+        <div class="col-2 ">
+            <div class="row">
+                <img style="max-width: 80px" class="col-6"
+                     src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-For-business-icon?fmt=png-alpha">
+                <a class="col-6" href="#">Surface for Enterprise Business</a>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="row">
+                <img style="max-width: 80px" class="col-6"
+                     src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Compare-devices-icon?fmt=png-alpha">
+                <a class="col-6" href="#">Compare devices</a>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="row">
+                <img style="max-width: 80px" class="col-6"
+                     src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Help-Me-Choose-icon?fmt=png-alpha">
+                <a class="col-6" href="#">Help me choose</a>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="row">
+                <img style="max-width: 80px" class="col-6"
+                     src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Find-deals-icon?fmt=png-alpha">
+                <a class="col-6" href="#">Surface deals</a>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="row">
+                <img style="max-width: 80px" class="col-6"
+                     src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Why-Surface-icon?fmt=png-alpha">
+                <a class="col-6" href="#">Why Surface</a>
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="row">
+                <img style="max-width: 80px" class="col-6"
+                     src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-For-education-icon?fmt=png-alpha">
+                <a class="col-6" href="#">Surface for Education</a>
+            </div>
+        </div>
+    </div>
+
+    <h1 style="padding-top: 50px">For all the ways you create</h1>
+    <div class="h3" style="padding-top: 50px">2-in-1 PCs &nbsp;&nbsp;&nbsp; <a href="#">See all Surface 2-in-1 PCs</a>
+    </div>
+
+    <div class="row" style="width: 100%">
+        <div class="col-6" >
+            <div class="card">
+                <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-View-Surface-Pro-9-Sapphire-Surface-Type-Cover-attached?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                     class="card-img-top" alt="...">
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-6 row">
+            <div class="col-lg-6">
+                <div class="card" style="width: 16rem" >
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Pro-7-plues-three-quarter-view-kickstand-extended-type-cover?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <a href="#">Surface Pro 9</a><br>
+                        <label ><input type="checkbox" class="">Compare</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="width: 16rem" >
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Pro-7-plues-three-quarter-view-kickstand-extended-type-cover?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <a href="#">Surface Pro 9</a><br>
+                        <label ><input type="checkbox" class="">Compare</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="width: 16rem" >
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Pro-7-plues-three-quarter-view-kickstand-extended-type-cover?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <a href="#">Surface Pro 9</a><br>
+                        <label ><input type="checkbox" class="">Compare</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="width: 16rem" >
+                    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/MSFT-Surface-Pro-7-plues-three-quarter-view-kickstand-extended-type-cover?fmt=png-alpha&wid=325&hei=240&fit=crop"
+                         class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <a href="#">Surface Pro 9</a><br>
+                        <label ><input type="checkbox" class="">Compare</label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</html>
