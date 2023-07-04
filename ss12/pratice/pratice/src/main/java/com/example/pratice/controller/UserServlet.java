@@ -36,7 +36,7 @@ public class UserServlet extends HttpServlet {
                     updateUser(request, response);
                     break;
                 case "searchByCountry":
-                    searchUserByCountry(request,response);
+                    searchUserByCountry(request, response);
                     break;
             }
         } catch (SQLException ex) {
@@ -47,17 +47,17 @@ public class UserServlet extends HttpServlet {
     private void searchUserByCountry(HttpServletRequest request, HttpServletResponse response) {
         String country = request.getParameter("search");
         List<User> users = userService.searchByCountry(country);
-        request.setAttribute("users",users);
+        request.setAttribute("users", users);
         String msg;
-        if(users == null){
-            msg = "User whose country is "+country+" does not exist in the list";
-        }else {
+        if (users == null) {
+            msg = "User whose country is " + country + " does not exist in the list";
+        } else {
             msg = "Result";
         }
-        request.setAttribute("msg",msg);
+        request.setAttribute("msg", msg);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/searchByCountry.jsp");
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }
@@ -82,10 +82,10 @@ public class UserServlet extends HttpServlet {
                     deleteUser(request, response);
                     break;
                 case "searchByCountry":
-                    showSearchForm(request,response);
+                    showSearchForm(request, response);
                     break;
                 case "sortByName":
-                    showSortByName(request,response);
+                    showSortByName(request, response);
                     break;
                 default:
                     listUser(request, response);
@@ -100,11 +100,11 @@ public class UserServlet extends HttpServlet {
         List<User> listUser = userService.sortByName();
         request.setAttribute("listUser", listUser);
         String result = "sort";
-        request.setAttribute("result",result);
+        request.setAttribute("result", result);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/list.jsp");
 
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -115,7 +115,7 @@ public class UserServlet extends HttpServlet {
     private void showSearchForm(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/searchByCountry.jsp");
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

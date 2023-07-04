@@ -17,24 +17,24 @@ public class UserRepository implements IUserRepository {
     private static final String SEARCH_BY_COUNTRY = "select * from users u where u.country like ?;";
     private static final String SORT_BY_NAME = "select * from users u order by u.name;";
 
-    public List<User> sortByName(){
+    public List<User> sortByName() {
         List<User> userList = new ArrayList<>();
         Connection connection = BaseRepository.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SORT_BY_NAME);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 String country = resultSet.getString("country");
-                userList.add(new User(id,name,email,country));
+                userList.add(new User(id, name, email, country));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        if(userList.size() != 0){
+        if (userList.size() != 0) {
             return userList;
         }
         return null;
@@ -42,7 +42,6 @@ public class UserRepository implements IUserRepository {
 
     public UserRepository() {
     }
-
 
 
     public void insertUser(User user) throws SQLException {
@@ -161,7 +160,7 @@ public class UserRepository implements IUserRepository {
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 String dataCountry = resultSet.getString("country");
-                userList.add(new User(id,name, email, dataCountry));
+                userList.add(new User(id, name, email, dataCountry));
             }
             connection.close();
         } catch (SQLException e) {
