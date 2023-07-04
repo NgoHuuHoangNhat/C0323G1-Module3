@@ -35,6 +35,13 @@
             </tr>
         </c:forEach>
     </table>
+    <h3><a href="/users?action=searchByCountry">Search By Country</a></h3>
+    <c:if test="${result == null}">
+        <h3><a href="/users?action=sortByName">Sort By Name</a></h3>
+    </c:if>
+    <c:if test="${result != null}">
+    <h3><a href="/users">Restore Main List</a></h3>
+    </c:if>
 </div>
 </body>
 </html>

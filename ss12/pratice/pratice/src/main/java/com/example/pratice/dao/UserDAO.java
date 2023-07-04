@@ -16,6 +16,33 @@ public class UserDAO implements IUserDAO {
     private static final String SELECT_ALL_USERS = "select * from users";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
+    private static final String SEARCH_BY_COUNTRY = "select * from users u where u.country like ?;";
+    private static final String SORT_BY_NAME = "select *\n" +
+            "from users u\n" +
+            "order by u.name;";
+
+    public List<User> sortByName(){
+        List<User> userList = new ArrayList<>();
+        Connection connection = getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SORT_BY_NAME);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                userList.add(new User(id,name,email,country));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        if(userList.size() != 0){
+            return userList;
+        }
+        return null;
+    }
 
     public UserDAO() {
     }
@@ -136,5 +163,30 @@ public class UserDAO implements IUserDAO {
                 }
             }
         }
+    }
+
+    public List<User> searchByCountry(String country) {
+        Connection connection = getConnection();
+        List<User> userList = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_BY_COUNTRY);
+            preparedStatement.setString(1, "%" + country + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String dataCountry = resultSet.getString("country");
+                userList.add(new User(id,name, email, dataCountry));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if (userList.size() == 0) {
+            return null;
+        }
+        return userList;
     }
 }

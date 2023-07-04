@@ -34,9 +34,31 @@ public class UserServlet extends HttpServlet {
                 case "edit":
                     updateUser(request, response);
                     break;
+                case "searchByCountry":
+                    searchUserByCountry(request,response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    private void searchUserByCountry(HttpServletRequest request, HttpServletResponse response) {
+        String country = request.getParameter("search");
+        List<User> users = userDAO.searchByCountry(country);
+        request.setAttribute("users",users);
+        String msg;
+        if(users == null){
+            msg = "User whose country is "+country+" does not exist in the list";
+        }else {
+            msg = "Result";
+        }
+        request.setAttribute("msg",msg);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/searchByCountry.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -58,12 +80,45 @@ public class UserServlet extends HttpServlet {
                 case "delete":
                     deleteUser(request, response);
                     break;
+                case "searchByCountry":
+                    showSearchForm(request,response);
+                    break;
+                case "sortByName":
+                    showSortByName(request,response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    private void showSortByName(HttpServletRequest request, HttpServletResponse response) {
+        List<User> listUser = userDAO.sortByName();
+        request.setAttribute("listUser", listUser);
+        String result = "sort";
+        request.setAttribute("result",result);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/list.jsp");
+
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void showSearchForm(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("user/searchByCountry.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
